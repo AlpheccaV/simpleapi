@@ -6,7 +6,7 @@
 ### Гайд, как и что сделать, чтобы сделать сборку запуск приложения
 1. Клонирование проекта с гита
 
-`$ git clone https://github.com/`
+`$ git clone https://github.com/AlpheccaV/simpleapi/`
 
 #### Запуск приложения
 
