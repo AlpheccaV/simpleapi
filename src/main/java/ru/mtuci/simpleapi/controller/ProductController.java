@@ -32,7 +32,7 @@ public class ProductController {
 
     @GetMapping(value = "/{id}")
     public Product get(@PathVariable("id") Long id) {
-        log.info("get "+ id);
+        log.info("get " + id);
         return productService.get(id);
     }
 
@@ -49,5 +49,14 @@ public class ProductController {
         productService.delete(id);
     }
 
-
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Product update(@PathVariable("id") Long id, @RequestBody Product product) {
+        log.info("corrected " + product);
+        Product oldProduct = productService.get(id);
+        if (oldProduct != null) {
+            return productService.update(oldProduct, product);
+        } else {
+            return null;
+        }
+    }
 }

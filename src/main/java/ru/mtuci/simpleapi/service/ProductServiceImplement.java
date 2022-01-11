@@ -36,4 +36,13 @@ public class ProductServiceImplement implements ProductService {
     public void delete(Long id) {
         productRepository.delete(id);
     }
+
+    @Override
+    public Product update(Product product, Product updatedProduct) {
+        product.setName(updatedProduct.getName());
+        product.setBrand(updatedProduct.getBrand());
+        product.setType(updatedProduct.getType());
+        product.setPrice(updatedProduct.getPrice());
+        return productRepository.save(product);
+    }
 }
