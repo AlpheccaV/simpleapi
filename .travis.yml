@@ -9,7 +9,7 @@ env:
    - COMMIT=${TRAVIS_COMMIT::7}
 
 script:
-- ./mvnw clean install -B
+- ./mvn clean install -B
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
