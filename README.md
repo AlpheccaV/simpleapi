@@ -5,50 +5,47 @@
 - Цель лаб.работы: Знакомство с проектированием многослойной архитектуры Web-API (веб-приложений, микро-сервисов).
 ### Гайд, как и что сделать, чтобы сделать сборку запуск приложения
 1. Клонирование проекта с гита
+`git clone https://github.com/AlpheccaV/simpleapi/`
 
-`$ git clone https://github.com/AlpheccaV/simpleapi/`
-
-#### Запуск приложения
-
-2.1 Сборка при помощи Maven из командной строки
-
-`$ mvnw package`
+#### Запуск приложения (команды вводить в командной строке)
+2.1 Сборка приложения
+`mvn package`
 
 2.2 Сборка Docker образа
+`docker build . -t simpleapi:latest`
 
-`$ docker build . -t simpleapi:latest`
-
-2.3 Запуск Docker контейнера c с приложением
-
-`$ docker run -p 5433:5433 simpleapi:latest`
+2.3 Запуск Docker контейнеров и заполнение базы данных
+`docker run -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres`
+Выполнить скрипт, расположенный по адресу ./src/main/resources/table.sql
+`docker run -p 8080:8080 simpleapi:latest`
 
 #### curl для обращения к ендпоинту, возвращающему hostname
 
 - Проверка статуса работы
-
-Тип запроса: `GET` `http://localhost:8080/api/v1/status`
+`GET` `http://localhost:8080/api/v1/status`
 
 #### curl для обращения к ендпоинтам приложения
+- Получение строк из базы данных
+`GET` `http://localhost:8080/api/v1/product`
+`GET` `http://localhost:8080/api/v1/product/*insert id*`
 
-- Получение всех записей из базы данных
-
-Тип запроса: `GET` `http://localhost:8080/api/v1/product`
-
-- Получение записи из базы данных по известному id
-
-Тип запроса: `GET` `http://localhost:8080/api/v1/product/*insert id*`
-
-- Запись в базу данных нового продукта
-
-Тип запроса: `POST` `http://localhost:8080/api/v1/product/`
-
-Тело запроса (JSON): `	{
-"name": "Миццелярка",
+- Запись в базу данных
+`POST` `http://localhost:8080/api/v1/product/`
+JSON для отправки: `	{
+"name": "Мицелярка",
 "brand": "Avene",
 "type": "Cleansing",
 "price": 2000
 }`
 
 - Удаление записи из базы данных по известному id
+`DELETE` `http://localhost:8080/api/v1/product/*insert id*`
 
-Тип запроса: `DELETE` `http://localhost:8080/api/v1/product/*insert id*`
+- Изменение данных в базе данных
+`PUT` `http://localhost:8080/api/v1/product/*insert id*`
+JSON для отправки: `	{
+  "name": "Мицелярка",
+  "brand": "Avene",
+  "type": "Cleansing",
+  "price": 2000
+  }`
