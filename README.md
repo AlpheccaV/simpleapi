@@ -22,18 +22,6 @@
 
 `$ docker run -p 5433:5433 simpleapi:latest`
 
-#### Запуск Docker-контейнера с базой данных
-3.1. Перейти в директорию БД
-
-`$ cd src\main\resources\DataBase`
-
-3.2. Собрать Docker контейнер с базой данных
-
-`$ docker build . -t postgres:latest`
-
-3.3. Запустить Docker контейнер с базой данных PostgreSQL
-
-`$ docker run -p 5432:5432 postgres:latest`
 #### curl для обращения к ендпоинту, возвращающему hostname
 
 - Проверка статуса работы
