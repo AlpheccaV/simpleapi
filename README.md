@@ -63,15 +63,3 @@
   "type": "Cleansing",
   "price": 2000
   }`
-
-## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
-
-- Цель лаб.работы: Знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
-
-- Линк на приложение в Heroku:
-
-https://justanothersimpleapi.herokuapp.com/api/v1/status
-
-- Статус из Travis CI:
-
-[![Build Status](https://app.travis-ci.com/AlpheccaV/simpleapi.svg?branch=master)](https://app.travis-ci.com/AlpheccaV/simpleapi)
