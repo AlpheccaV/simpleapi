@@ -31,7 +31,7 @@
 
 - Запись в базу данных
 `POST` `http://localhost:8080/api/v1/product/`
-JSON для отправки: `	{
+  JSON для отправки: `	{
 "name": "Мицелярка",
 "brand": "Avene",
 "type": "Cleansing",
@@ -43,7 +43,7 @@ JSON для отправки: `	{
 
 - Изменение данных в базе данных
 `PUT` `http://localhost:8080/api/v1/product/*insert id*`
-JSON для отправки: `	{
+  JSON для отправки: `	{
   "name": "Мицелярка",
   "brand": "Avene",
   "type": "Cleansing",
